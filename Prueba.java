@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Ruleta {
+public class Prueba {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rnd=new Random();
