@@ -18,8 +18,12 @@ public class Jugador {
         return edad;
     }
 
-    public int fichas(){
+    public int getfichas(){
         return fichas;
+    }
+
+    public int[] getNumeros_elegidos(){
+        return numeros_elegidos;
     }
 
     public void setNombre(int nombre){
@@ -32,6 +36,10 @@ public class Jugador {
 
     public void setFichas(int fichas){
         this.fichas=fichas;
+    }
+    
+    public void setNumeros_elegidos(int[] numeros_elegidos){
+        this.numeros_elegidos=numeros_elegidos;
     }
 
     public void añadirFichas(int fichas){
