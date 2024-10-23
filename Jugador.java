@@ -4,10 +4,10 @@ public class Jugador {
     private int fichas;
     private int[] numeros_elegidos;
 
-    public Jugador(String nombre, int edad, int fichas) {
+    public Jugador(String nombre, int edad) {
         this.nombre=nombre;
         this.edad=edad;
-        this.fichas=fichas;
+        fichas=100;
     }
 
     public int getNombre(){
@@ -43,12 +43,12 @@ public class Jugador {
     }
 
     public void añadirFichas(int fichas){
-        this.fichas=+fichas;
+        this.fichas+=fichas;
     }
 
     public void retirarFichas(int fichas){
         if (fichas<this.fichas){
-            this.fichas=-fichas;
+            this.fichas-=fichas;
         }else{
             System.out.println("no tienes esa cantidad de fichas");
         }

@@ -10,6 +10,9 @@ public class NumeroAleatorio {
         numero_ruleta=rnd.nextInt(5);
     }
 
+    public int getNumero_ruleta(){
+        return numero_ruleta;
+    }
     public String parImpar(){
         if (numero_ruleta%2==0){
             return "Par";
