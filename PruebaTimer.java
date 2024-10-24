@@ -49,7 +49,7 @@ public class PruebaTimer {
     public static void main(String[] args) {
         PruebaTimer t = new PruebaTimer();
         t.timer();
-        t.añadirNumeros();1
+        t.añadirNumeros();
 
     }
 }
