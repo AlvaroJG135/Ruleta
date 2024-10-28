@@ -9,14 +9,16 @@ public class NumeroAleatorio {
     int[] fila2 = {2,5,8,11,14,17,20,23,26,29,32,35};
 
     public NumeroAleatorio() {
-        numero_ruleta=rnd.nextInt(5);
+        numero_ruleta=rnd.nextInt(2);
     }
 
     public int getNumero_ruleta(){
         return numero_ruleta;
     }
     public String parImpar(){
-        if (numero_ruleta%2==0){
+        if(numero_ruleta==0){
+            return "";
+        }else if (numero_ruleta%2==0){
             return "Par";
         }
         return "Impar";
@@ -34,23 +36,31 @@ public class NumeroAleatorio {
         return "Rojo";
     }
     public int queMitadEs(){
-        if (numero_ruleta>=1 && numero_ruleta<=18) {
+        if(numero_ruleta==0){
+            return 0;
+        }else if (numero_ruleta>=1 && numero_ruleta<=18) {
             return 1;
         }
         return 2;
     }
     public int queFilaEs(){
-        for (int i = 0; i < fila3.length; i++) {
-            if(numero_ruleta==fila3[i]){
-                return 3;
-            }else if (numero_ruleta==fila2[i]) {
-                return 2;
+        if (numero_ruleta==0){
+            return 0;
+        }else{
+            for (int i = 0; i < fila3.length; i++) {
+                if(numero_ruleta==fila3[i]){
+                    return 3;
+                }else if (numero_ruleta==fila2[i]) {
+                    return 2;
+                }
             }
         }
         return 1;
     }
     public int queDocenaEs(){
-        if(numero_ruleta>=1 && numero_ruleta<=12){
+        if (numero_ruleta==0){
+            return 0;
+        }else if(numero_ruleta>=1 && numero_ruleta<=12){
             return 1;
         }else if(numero_ruleta>=13 && numero_ruleta<=24){
             return 2;

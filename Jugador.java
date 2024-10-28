@@ -10,7 +10,7 @@ public class Jugador {
         fichas=100;
     }
 
-    public int getNombre(){
+    public String getNombre(){
         return nombre;
     }
 
@@ -26,7 +26,7 @@ public class Jugador {
         return numeros_elegidos;
     }
 
-    public void setNombre(int nombre){
+    public void setNombre(String nombre){
         this.nombre=nombre;
     }
     
@@ -47,7 +47,7 @@ public class Jugador {
     }
 
     public void retirarFichas(int fichas){
-        if (fichas<this.fichas){
+        if (fichas<=this.fichas){
             this.fichas-=fichas;
         }else{
             System.out.println("no tienes esa cantidad de fichas");
