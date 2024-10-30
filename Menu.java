@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-public class Menu_copia {
+public class Menu {
     public static final String ROJO = "\u001B[31m";
     public static final String RESET = "\u001B[0m";
 
@@ -54,24 +54,32 @@ public class Menu_copia {
                         sc.nextLine();
                         System.out.println("Par - Impar");
                         parImpar = sc.nextLine().toUpperCase();
+                        System.out.println("Cantidad de fichas");
+                        fichas_jugador = sc.nextInt();
                         selecciones.add("ParImpar:"+parImpar);
                     break;
                 case "4":
                         sc.nextLine();
                         System.out.println("1º Mitad - 2º Mitad");
                         mitad = sc.nextLine();
+                        System.out.println("Cantidad de fichas");
+                        fichas_jugador = sc.nextInt();
                         selecciones.add("Mitad:"+mitad);
                     break;
                 case "5":
                         sc.nextLine();
                         System.out.println("1º Fila - 2º Fila - 3º Fila");
                         fila = sc.nextLine();
+                        System.out.println("Cantidad de fichas");
+                        fichas_jugador = sc.nextInt();
                         selecciones.add("Fila"+fila);
                     break;
                 case "6":
                         sc.nextLine();
                         System.out.println("1º Docena - 2º Docena - 3º Docena");
                         docena = sc.nextLine();
+                        System.out.println("Cantidad de fichas");
+                        fichas_jugador = sc.nextInt();
                         selecciones.add("Docena:"+docena);
                     break;
                 case "7":
