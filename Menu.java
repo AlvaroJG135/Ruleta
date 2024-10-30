@@ -1,5 +1,6 @@
+import java.util.ArrayList;
 import java.util.Scanner;
-public class Menu {
+public class Menu_copia {
     public static final String ROJO = "\u001B[31m";
     public static final String RESET = "\u001B[0m";
 
@@ -11,13 +12,15 @@ public class Menu {
         String opcion;
         String color;
         String parImpar;
-        int mitad;
-        int fila;
-        int docena;
+        String mitad;
+        String fila;
+        String docena;
         boolean salir=false;
 
+        ArrayList<String> selecciones = new ArrayList<>();
+        NumeroAleatorio numeroAleatorio = new NumeroAleatorio();
         do {
-            NumeroAleatorio numeroAleatorio = new NumeroAleatorio();
+            
             System.out.println();
             System.out.println(ROJO+"3"+RESET+" 6 "+ROJO+"9 12"+RESET+"|15 "+ROJO+"18 21"+RESET+" 24|"+ROJO+"27 30"+RESET+ " 33 "+ROJO+"36"+RESET +" -> Fila 3\n"+
                                 "2 "+ROJO+"5"+RESET+" 8 11|"+ROJO+"14"+RESET+" 17 20 "+ROJO+"23"+RESET+"|26 29 "+ROJO+"32"+RESET+ " 35"+" -> Fila 2\n"+
@@ -45,69 +48,31 @@ public class Menu {
                         color = sc.nextLine().toUpperCase();
                         System.out.println("Cantidad de fichas");
                         fichas_jugador = sc.nextInt();
-                        if (color.equals(numeroAleatorio.colorDelNumero().toUpperCase())){
-                            System.out.println("has ganado "+numeroAleatorio.toString());
-                            j.añadirFichas(fichas_jugador);
-                        }else{
-                            System.out.println("has perdido "+numeroAleatorio.toString());
-                            j.retirarFichas(fichas_jugador);
-                        }
+                        selecciones.add("Color:"+color);
                     break;
                 case "3":
                         sc.nextLine();
                         System.out.println("Par - Impar");
                         parImpar = sc.nextLine().toUpperCase();
-                        System.out.println("Cantidad de fichas");
-                        fichas_jugador = sc.nextInt();
-                        if (parImpar.equals(numeroAleatorio.parImpar().toUpperCase())){
-                            System.out.println("has ganado "+numeroAleatorio.toString());
-                            j.añadirFichas(fichas_jugador);
-                        }else{
-                            System.out.println("has perdido "+numeroAleatorio.toString());
-                            j.retirarFichas(fichas_jugador);
-                        }
+                        selecciones.add("ParImpar:"+parImpar);
                     break;
                 case "4":
                         sc.nextLine();
                         System.out.println("1º Mitad - 2º Mitad");
-                        mitad = sc.nextInt();
-                        System.out.println("Cantidad de fichas");
-                        fichas_jugador = sc.nextInt();
-                        if (mitad==numeroAleatorio.queMitadEs()){
-                            System.out.println("has ganado "+numeroAleatorio.toString());
-                            j.añadirFichas(fichas_jugador);
-                        }else{
-                            System.out.println("has perdido "+numeroAleatorio.toString());
-                            j.retirarFichas(fichas_jugador);
-                        }
+                        mitad = sc.nextLine();
+                        selecciones.add("Mitad:"+mitad);
                     break;
                 case "5":
                         sc.nextLine();
                         System.out.println("1º Fila - 2º Fila - 3º Fila");
-                        fila = sc.nextInt();
-                        System.out.println("Cantidad de fichas");
-                        fichas_jugador = sc.nextInt();
-                        if (fila==numeroAleatorio.queFilaEs()){
-                            System.out.println("has ganado "+numeroAleatorio.toString());
-                            j.añadirFichas(fichas_jugador*2);
-                        }else{
-                            System.out.println("has perdido "+numeroAleatorio.toString());
-                            j.retirarFichas(fichas_jugador);
-                        }
+                        fila = sc.nextLine();
+                        selecciones.add("Fila"+fila);
                     break;
                 case "6":
                         sc.nextLine();
                         System.out.println("1º Docena - 2º Docena - 3º Docena");
-                        docena = sc.nextInt();
-                        System.out.println("Cantidad de fichas");
-                        fichas_jugador = sc.nextInt();
-                        if (docena==numeroAleatorio.queDocenaEs()){
-                            System.out.println("has ganado "+numeroAleatorio.toString());
-                            j.añadirFichas(fichas_jugador*2);
-                        }else{
-                            System.out.println("has perdido "+numeroAleatorio.toString());
-                            j.retirarFichas(fichas_jugador);
-                        }
+                        docena = sc.nextLine();
+                        selecciones.add("Docena:"+docena);
                     break;
                 case "7":
                         sc.nextLine();
@@ -122,6 +87,47 @@ public class Menu {
                 default:
                     System.out.println("opcion no valida");
             }
+            System.out.println(numeroAleatorio.toString());
         } while (salir!=true);
+        for (String seleccion : selecciones) {
+            String[] partes = seleccion.split(":");
+            switch (partes[0]) {
+                case "color":
+                    if (partes[1].equalsIgnoreCase(numeroAleatorio.colorDelNumero())) {
+                        System.out.println("has ganado "+numeroAleatorio.toString());
+                    }else{
+                        System.out.println("has perdido "+numeroAleatorio.toString());
+                    }
+                    break;
+                case "ParImpar":
+                    if (partes[1].equalsIgnoreCase(numeroAleatorio.parImpar())) {
+                        System.out.println("has ganado "+numeroAleatorio.toString());
+                    }else{
+                        System.out.println("has perdido "+numeroAleatorio.toString());
+                    }
+                    break;
+                case "Mitad":
+                    if (partes[1].equalsIgnoreCase(numeroAleatorio.parImpar())) {
+                        System.out.println("has ganado "+numeroAleatorio.toString());
+                    }else{
+                        System.out.println("has perdido "+numeroAleatorio.toString());
+                    }
+                    break;
+                case "Fila":
+                    if (partes[1].equalsIgnoreCase(numeroAleatorio.queFilaEs())) {
+                        System.out.println("has ganado "+numeroAleatorio.toString());
+                    }else{
+                        System.out.println("has perdido "+numeroAleatorio.toString());
+                    }
+                    break;
+                case "Docena":
+                    if (partes[1].equalsIgnoreCase(numeroAleatorio.parImpar())) {
+                        System.out.println("has ganado "+numeroAleatorio.toString());
+                    }else{
+                        System.out.println("has perdido "+numeroAleatorio.toString());
+                    }
+                    break;
+            }
+        }
     }
 }

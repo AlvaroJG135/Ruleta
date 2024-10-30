@@ -3,8 +3,8 @@ import java.util.Random;
 public class NumeroAleatorio {
     Random rnd = new Random();
     int numero_ruleta;
-    int[] numeros_negros = {1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36};
-    int[] numeros_rojos = {2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35};
+    int[] numeros_rojos = {1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36};
+    int[] numeros_negros = {2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35};
     int[] fila3 = {3,6,9,12,15,18,21,24,27,30,33,36};
     int[] fila2 = {2,5,8,11,14,17,20,23,26,29,32,35};
 
@@ -35,37 +35,37 @@ public class NumeroAleatorio {
         }
         return "Rojo";
     }
-    public int queMitadEs(){
+    public String queMitadEs(){
         if(numero_ruleta==0){
-            return 0;
+            return "0";
         }else if (numero_ruleta>=1 && numero_ruleta<=18) {
-            return 1;
+            return "1";
         }
-        return 2;
+        return "2";
     }
-    public int queFilaEs(){
+    public String queFilaEs(){
         if (numero_ruleta==0){
-            return 0;
+            return "0";
         }else{
             for (int i = 0; i < fila3.length; i++) {
                 if(numero_ruleta==fila3[i]){
-                    return 3;
+                    return "3";
                 }else if (numero_ruleta==fila2[i]) {
-                    return 2;
+                    return "2";
                 }
             }
         }
-        return 1;
+        return "1";
     }
-    public int queDocenaEs(){
+    public String queDocenaEs(){
         if (numero_ruleta==0){
-            return 0;
+            return "0";
         }else if(numero_ruleta>=1 && numero_ruleta<=12){
-            return 1;
+            return "1";
         }else if(numero_ruleta>=13 && numero_ruleta<=24){
-            return 2;
+            return "2";
         }
-        return 3;
+        return "3";
     }
     @Override
     public String toString(){
