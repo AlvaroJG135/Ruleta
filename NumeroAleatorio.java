@@ -19,9 +19,9 @@ public class NumeroAleatorio {
         if(numero_ruleta==0){
             return "";
         }else if (numero_ruleta%2==0){
-            return "Par";
+            return "P";
         }
-        return "Impar";
+        return "I";
     }
     public String colorDelNumero(){
         if(numero_ruleta==0){
@@ -29,11 +29,11 @@ public class NumeroAleatorio {
         }else{
             for (int i = 0; i < numeros_negros.length; i++) {
                 if(numero_ruleta==numeros_negros[i]){
-                    return "Negro";
+                    return "N";
                 }
             }
         }
-        return "Rojo";
+        return "R";
     }
     public String queMitadEs(){
         if(numero_ruleta==0){

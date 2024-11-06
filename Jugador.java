@@ -1,3 +1,6 @@
+
+import java.util.Scanner;
+
 public class Jugador {
     private String nombre;
     private int edad;
@@ -47,11 +50,12 @@ public class Jugador {
     }
 
     public void retirarFichas(int fichas){
-        if (fichas<=this.fichas){
-            this.fichas-=fichas;
-        }else{
-            System.out.println("no tienes esa cantidad de fichas");
+        Scanner sc = new Scanner (System.in);
+        while (fichas>this.fichas){
+            System.out.println("No tienes esa cantidad de fichas. Introduce una cantidad de fichas válida");
+            fichas = sc.nextInt();
         }
+        this.fichas-=fichas;
     }
 
     public boolean esMayorDeEdad(){
