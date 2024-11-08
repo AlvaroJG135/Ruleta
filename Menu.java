@@ -17,7 +17,7 @@ public class Menu {
         String docena;
         boolean salir=false;
 
-        ArrayList<String> selecciones = new ArrayList<>();
+        ArrayList<String> apuestas = new ArrayList<>();
         NumeroAleatorio numeroAleatorio = new NumeroAleatorio();
         do {
             
@@ -49,7 +49,7 @@ public class Menu {
                         color = sc.nextLine().toUpperCase();
                         System.out.println("Cantidad de fichas");
                         fichas_jugador = sc.nextInt();
-                        selecciones.add("Color:"+color+":"+fichas_jugador);
+                        apuestas.add("Color:"+color+":"+fichas_jugador);
                     break;
                 case "3":
                         sc.nextLine();
@@ -59,7 +59,7 @@ public class Menu {
                         fichas_jugador = sc.nextInt();
                         j.retirarFichas(fichas_jugador);
                         System.out.println("retiradas");
-                        selecciones.add("ParImpar:"+parImpar+":"+fichas_jugador);
+                        apuestas.add("ParImpar:"+parImpar+":"+fichas_jugador);
                         
                     break;
                 case "4":
@@ -70,7 +70,7 @@ public class Menu {
                         fichas_jugador = sc.nextInt();
                         j.retirarFichas(fichas_jugador);
                         System.out.println("retiradas");
-                        selecciones.add("Mitad:"+mitad+":"+fichas_jugador);
+                        apuestas.add("Mitad:"+mitad+":"+fichas_jugador);
                     break;
                 case "5":
                         sc.nextLine();
@@ -80,7 +80,7 @@ public class Menu {
                         fichas_jugador = sc.nextInt();
                         j.retirarFichas(fichas_jugador);
                         System.out.println("retiradas");
-                        selecciones.add("Fila"+fila+":"+fichas_jugador);
+                        apuestas.add("Fila"+fila+":"+fichas_jugador);
                     break;
                 case "6":
                         sc.nextLine();
@@ -90,7 +90,7 @@ public class Menu {
                         fichas_jugador = sc.nextInt();
                         j.retirarFichas(fichas_jugador);
                         System.out.println("retiradas");
-                        selecciones.add("Docena:"+docena+":"+fichas_jugador);
+                        apuestas.add("Docena:"+docena+":"+fichas_jugador);
                     break;
                 case "7":
                         sc.nextLine();
@@ -107,8 +107,8 @@ public class Menu {
             }
             System.out.println(numeroAleatorio.toString());
         } while (salir!=true);
-        for (String seleccion : selecciones) {
-            String[] partes = seleccion.split(":");
+        for (String apuesta : apuestas) {
+            String[] partes = apuesta.split(":");
             switch (partes[0]) {
                 case "Color":
                     if (partes[1].equalsIgnoreCase(numeroAleatorio.colorDelNumero())) {
